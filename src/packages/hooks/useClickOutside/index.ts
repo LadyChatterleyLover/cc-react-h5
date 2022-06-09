@@ -19,7 +19,5 @@ export const useClickOutside = (
       document.removeEventListener(eventName, handler)
     }
   }, [])
-  return {
-    ref
-  }
+  return [ref]
 }
