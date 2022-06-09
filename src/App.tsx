@@ -1,5 +1,6 @@
 import { useRoutes, BrowserRouter } from "react-router-dom"
-import Index from "./packages/index"
+import ButtonIndex from "./examples/button"
+import Index from "./examples/index/index"
 
 const Routes = () => {
   const routes = useRoutes([
@@ -7,6 +8,10 @@ const Routes = () => {
       path: "/",
       element: <Index />,
     },
+    {
+      path: '/button',
+      element: <ButtonIndex />
+    }
   ])
   return routes
 }
