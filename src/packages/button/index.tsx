@@ -1,9 +1,11 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import { useSizeClass, useTypeClass } from "../hooks/useClass"
 import Loading from "../loading"
 import { SizeProps, TypeProps } from "../types"
 
 export interface ButtonProps {
+  // 样式
+  style?: CSSProperties
   // 按钮类型
   type?: TypeProps
   // 按钮尺寸
@@ -25,11 +27,12 @@ export interface ButtonProps {
   // 点击事件
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   // 按钮内容
-  children: React.ReactNode
+  children: React.ReactNode,
 }
 
 const Button = (props: ButtonProps) => {
   const {
+    style = {},
     type = "",
     size = "middle",
     block = false,
@@ -50,6 +53,7 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
+      style={{...style}}
       className={`
       px-3
       text-base
