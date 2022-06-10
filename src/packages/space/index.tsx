@@ -43,15 +43,22 @@ const Space = (props: SpaceProps) => {
         alignItems: align,
       }}
       onClick={(e) => handleClick(e)}>
-      {React.Children.map(props.children, (child) => {
-        return child !== null && child !== undefined && 
-        <div 
-         style={{
-           marginRight: direction === 'horizontal' ? gap + 'px' : 0,
-           paddingBottom: direction === 'horizontal' ? gap + 'px' : 0,
-           marginBottom: direction === 'vertical' ? gap + 'px' : 0,
-         }}
-        >{child}</div>
+      {React.Children.map(props.children, (child, index) => {
+        return (
+          child !== null &&
+          child !== undefined && (
+            <div
+              className="flex items-center"
+              style={{
+                marginRight:
+                  direction === "horizontal" && index !== React.Children.count(props.children) - 1 ? gap + "px" : 0,
+                marginBottom:
+                  direction === "vertical" && index !== React.Children.count(props.children) - 1 ? gap + "px" : 0,
+              }}>
+              {child}
+            </div>
+          )
+        )
       })}
     </div>
   )

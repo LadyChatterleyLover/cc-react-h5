@@ -1,5 +1,6 @@
-import React, { CSSProperties } from "react"
+import React, { CSSProperties, ReactNode } from "react"
 import { useSizeClass, useTypeClass } from "../hooks/useClass"
+import Icon from "../icon"
 import Loading from "../loading"
 import { SizeProps, TypeProps } from "../types"
 
@@ -8,6 +9,8 @@ export interface ButtonProps {
   style?: CSSProperties
   // 按钮类型
   type?: TypeProps
+  // 图标
+  icon?: ReactNode
   // 按钮尺寸
   size?: SizeProps
   // 块级按钮
@@ -21,13 +24,13 @@ export interface ButtonProps {
   // 加载状态
   loading?: boolean
   // 加载类型
-  loadingType?: 'circle' | 'spinner'
+  loadingType?: "circle" | "spinner"
   // 按钮原生类型
   nativeType?: "submit" | "reset" | "button"
   // 点击事件
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   // 按钮内容
-  children: React.ReactNode,
+  children: React.ReactNode
 }
 
 const Button = (props: ButtonProps) => {
@@ -35,12 +38,13 @@ const Button = (props: ButtonProps) => {
     style = {},
     type = "",
     size = "middle",
+    icon,
     block = false,
     disabled = false,
     round = false,
     plain = false,
     loading = false,
-    loadingType = 'circle',
+    loadingType = "circle",
     nativeType = "button",
     children,
     onClick,
@@ -53,7 +57,7 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
-      style={{...style}}
+      style={{ ...style }}
       className={`
       px-3
       text-base
@@ -78,7 +82,14 @@ const Button = (props: ButtonProps) => {
             <Loading type={loadingType}></Loading>
           </div>
         ) : null}
-        <div>{children}</div>
+        <div className="flex items-center">
+          {icon ? (
+            <div className="mr-2 relative top-0.5">
+              <Icon>{icon}</Icon>
+            </div>
+          ) : null}
+          <div>{children}</div>
+        </div>
       </div>
     </button>
   )

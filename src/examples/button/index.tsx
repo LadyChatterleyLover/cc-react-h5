@@ -1,4 +1,7 @@
 import Button from "../../packages/button"
+import Space from "../../packages/space"
+import { Search16Regular } from "@ricons/fluent"
+import Icon from "../../packages/icon"
 
 const ButtonIndex = () => {
   return (
@@ -33,6 +36,13 @@ const ButtonIndex = () => {
       <div>
         <Button round type="primary">
           round
+        </Button>
+      </div>
+
+      <div className="m-4 text-lg font-bold">图标</div>
+      <div>
+        <Button type="primary" icon={<Search16Regular />}>
+          搜索
         </Button>
       </div>
 
