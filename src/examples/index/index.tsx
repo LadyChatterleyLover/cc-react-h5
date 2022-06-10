@@ -157,9 +157,9 @@ const Index = () => {
           url: "/notify",
         },
         {
-          title: "Mask",
+          title: "overlay",
           label: "遮罩层",
-          url: "/mask",
+          url: "/overlay",
         },
         {
           title: "SwipeCell",
