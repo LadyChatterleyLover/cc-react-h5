@@ -32,8 +32,22 @@ const ButtonIndex = () => {
       <div className="m-4 text-lg font-bold">圆角按钮</div>
       <div>
         <Button round type="primary">
-        round
+          round
         </Button>
+      </div>
+
+      <div className="m-4 text-lg font-bold">加载状态</div>
+      <div className="flex items-center flex-wrap">
+        <div className="mr-4 mb-4">
+          <Button loading type="primary">
+            loading
+          </Button>
+        </div>
+        <div className="mr-4 mb-4">
+          <Button loading loadingType="spinner" type="primary">
+            loading
+          </Button>
+        </div>
       </div>
 
       <div className="m-4 text-lg font-bold">禁用状态</div>
@@ -44,9 +58,7 @@ const ButtonIndex = () => {
           </Button>
         </div>
         <div className="mr-4 mb-4">
-          <Button disabled>
-            disabled
-          </Button>
+          <Button disabled>disabled</Button>
         </div>
       </div>
 
@@ -70,6 +82,7 @@ const ButtonIndex = () => {
             warning
           </Button>
         </div>
+
         <div className="mr-4 mb-4">
           <Button type="danger" plain>
             danger

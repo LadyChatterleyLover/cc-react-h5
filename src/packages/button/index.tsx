@@ -1,5 +1,6 @@
 import React from "react"
 import { useSizeClass, useTypeClass } from "../hooks/useClass"
+import Loading from "../loading"
 import { SizeProps, TypeProps } from "../types"
 
 export interface ButtonProps {
@@ -17,8 +18,8 @@ export interface ButtonProps {
   round?: boolean
   // 加载状态
   loading?: boolean
-  // 加载文案
-  loadingText?: string
+  // 加载类型
+  loadingType?: 'circle' | 'spinner'
   // 按钮原生类型
   nativeType?: "submit" | "reset" | "button"
   // 点击事件
@@ -26,8 +27,6 @@ export interface ButtonProps {
   // 按钮内容
   children: React.ReactNode
 }
-
-
 
 const Button = (props: ButtonProps) => {
   const {
@@ -38,7 +37,7 @@ const Button = (props: ButtonProps) => {
     round = false,
     plain = false,
     loading = false,
-    loadingText = "",
+    loadingType = 'circle',
     nativeType = "button",
     children,
     onClick,
@@ -61,7 +60,7 @@ const Button = (props: ButtonProps) => {
       select-none
       leading-normal
       h-auto
-      ${disabled ? 'cursor-not-allowed opacity-40' : ''}
+      ${disabled ? "cursor-not-allowed opacity-40" : ""}
       ${useSizeClass(size)}
       ${block ? "w-full" : ""}
       ${useTypeClass(type, plain)}
@@ -69,7 +68,14 @@ const Button = (props: ButtonProps) => {
       `}
       type={nativeType}
       onClick={(e) => handleClick(e)}>
-      {children}
+      <div className="flex items-center">
+        {loading ? (
+          <div>
+            <Loading type={loadingType}></Loading>
+          </div>
+        ) : null}
+        <div>{children}</div>
+      </div>
     </button>
   )
 }
