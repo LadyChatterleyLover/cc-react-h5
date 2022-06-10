@@ -4,7 +4,7 @@ const ButtonIndex = () => {
   return (
     <div className="p-5">
       <div className="m-4 text-lg font-bold">基础用法</div>
-      <div className='flex items-center flex-wrap'>
+      <div className="flex items-center flex-wrap">
         <div className="mr-4 mb-4">
           <Button>default</Button>
         </div>
@@ -21,47 +21,83 @@ const ButtonIndex = () => {
           <Button type="danger">danger</Button>
         </div>
       </div>
-      <br />
-      <br />
+
       <div className="m-4 text-lg font-bold">块级按钮</div>
       <div>
-        <Button block type="primary">block</Button>
+        <Button block type="primary">
+          block
+        </Button>
       </div>
-      <br />
-      <br />
+
+      <div className="m-4 text-lg font-bold">圆角按钮</div>
+      <div>
+        <Button round type="primary">
+        round
+        </Button>
+      </div>
+
+      <div className="m-4 text-lg font-bold">禁用状态</div>
+      <div className="flex items-center flex-wrap">
+        <div className="mr-4 mb-4">
+          <Button disabled type="primary">
+            disabled
+          </Button>
+        </div>
+        <div className="mr-4 mb-4">
+          <Button disabled>
+            disabled
+          </Button>
+        </div>
+      </div>
+
       <div className="m-4 text-lg font-bold">朴素按钮</div>
-      <div className='flex items-center flex-wrap'>
+      <div className="flex items-center flex-wrap">
         <div className="mr-4 mb-4">
           <Button plain>default</Button>
         </div>
         <div className="mr-4 mb-4">
-          <Button type="primary" plain>primary</Button>
+          <Button type="primary" plain>
+            primary
+          </Button>
         </div>
         <div className="mr-4 mb-4">
-          <Button type="success" plain>success</Button>
+          <Button type="success" plain>
+            success
+          </Button>
         </div>
         <div className="mr-4 mb-4">
-          <Button type="warning" plain>warning</Button>
+          <Button type="warning" plain>
+            warning
+          </Button>
         </div>
         <div className="mr-4 mb-4">
-          <Button type="danger" plain>danger</Button>
+          <Button type="danger" plain>
+            danger
+          </Button>
         </div>
       </div>
-      <br />
-      <br />
+
       <div className="m-4 text-lg font-bold">不同尺寸</div>
-      <div className='flex items-center flex-wrap'>
+      <div className="flex items-center flex-wrap">
         <div className="mr-4 mb-4">
-          <Button type="primary" size="mini">mini</Button>
+          <Button type="primary" size="mini">
+            mini
+          </Button>
         </div>
         <div className="mr-4 mb-4">
-          <Button type="primary" size='small'>small</Button>
-        </div>
-        <div className="mr-4 mb-4" >
-          <Button type="primary" size='middle'>middle</Button>
+          <Button type="primary" size="small">
+            small
+          </Button>
         </div>
         <div className="mr-4 mb-4">
-          <Button type="primary" size='large'>large</Button>
+          <Button type="primary" size="middle">
+            middle
+          </Button>
+        </div>
+        <div className="mr-4 mb-4">
+          <Button type="primary" size="large">
+            large
+          </Button>
         </div>
       </div>
     </div>
