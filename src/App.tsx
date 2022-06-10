@@ -1,6 +1,7 @@
 import { useRoutes, BrowserRouter } from "react-router-dom"
 import ButtonIndex from "./examples/button"
 import Index from "./examples/index/index"
+import LayoutIndex from "./examples/layout"
 import LoadingIndex from "./examples/loading"
 import SpaceIndex from "./examples/space"
 
@@ -19,8 +20,12 @@ const Routes = () => {
       element: <LoadingIndex />,
     },
     {
-      path: '/space',
-      element: <SpaceIndex />
+      path: "/space",
+      element: <SpaceIndex />,
+    },
+    {
+      path: "/layout",
+      element: <LayoutIndex />,
     },
   ])
   return routes

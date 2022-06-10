@@ -54,6 +54,7 @@ const Space = (props: SpaceProps) => {
                   direction === "horizontal" && index !== React.Children.count(props.children) - 1 ? gap + "px" : 0,
                 marginBottom:
                   direction === "vertical" && index !== React.Children.count(props.children) - 1 ? gap + "px" : 0,
+                paddingBottom: direction === "horizontal" && wrap ? gap + "px" : 0,
               }}>
               {child}
             </div>
