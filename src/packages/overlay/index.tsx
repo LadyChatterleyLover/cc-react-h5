@@ -41,21 +41,8 @@ const Overlay = (props: OverlayProps) => {
     onMaskClick?.(e)
   }
 
-  const render = () => {
-    const container = typeof getContainer === "function" ? getContainer() : getContainer
-    return container ? (
-      ReactDOM.createPortal(
-        visible ? (
-          <div
-            onClick={(e) => handleClick(e)}
-            className={`cc-overlay absolute top-0 bottom-0 left-0 right-0`}
-            style={{ ...style, zIndex, background, transitionDuration: String(duration) }}>
-            {children}
-          </div>
-        ) : null,
-        container!
-      )
-    ) : (
+  const renderContent = () => {
+    return (
       <div
         onClick={(e) => handleClick(e)}
         className={`
@@ -76,6 +63,20 @@ const Overlay = (props: OverlayProps) => {
         }}>
         {children}
       </div>
+    )
+  }
+
+  const render = () => {
+    const container = typeof getContainer === "function" ? getContainer() : getContainer
+    return container ? (
+      ReactDOM.createPortal(
+        visible ? (
+          renderContent()
+        ) : null,
+        container!
+      )
+    ) : (
+      renderContent()
     )
   }
 
