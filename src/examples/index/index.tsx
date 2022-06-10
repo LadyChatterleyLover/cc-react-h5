@@ -381,11 +381,11 @@ const Index = () => {
                   style={{ boxShadow: "0 1px 4px 0 rgb(102 102 102 / 6%)" }}
                   key={index1}
                   onClick={() => clickItem(item1)}>
-                  <div className="flex items-center font-bold" style={{ color: "#333" }}>
-                    <div className="ml-10">{item1.label}</div>
-                    <div className="ml-5">{item1.title}</div>
+                  <div className="flex items-center w-full font-bold" style={{ color: "#333" }}>
+                    <div className="ml-6 w-20">{item1.label}</div>
+                    <div className="ml-5 flex-1">{item1.title}</div>
                   </div>
-                  <div className="absolute top-1/2 -translate-y-1/2 right-8 top-6">
+                  <div className="absolute top-1/2 -translate-y-1/2 right-4 top-6">
                     <Icon color='#979797' size={24}>
                       <ChevronRight24Regular></ChevronRight24Regular>
                     </Icon>
