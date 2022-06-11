@@ -6,6 +6,7 @@ import LoadingIndex from "./examples/loading"
 import SpaceIndex from "./examples/space"
 import OverlayIndex from "./examples/overlay"
 import PopupIndex from "./examples/popup"
+import ActionSheetIndex from "./examples/actionSheet"
 
 const Routes = () => {
   const routes = useRoutes([
@@ -36,6 +37,10 @@ const Routes = () => {
     {
       path: "/popup",
       element: <PopupIndex />,
+    },
+    {
+      path: "/actionSheet",
+      element: <ActionSheetIndex />,
     },
   ])
   return routes

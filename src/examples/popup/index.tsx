@@ -13,7 +13,6 @@ const PopupIndex = () => {
   const [visible7, setVisible7] = useState(false)
   const [visible8, setVisible8] = useState(false)
   const [visible9, setVisible9] = useState(false)
-  const [visible10, setVisible10] = useState(false)
 
   return (
     <div className="p-5">
