@@ -28,6 +28,21 @@ const DialogIndex = () => {
         content='代码是写出来给人看的，附带能在机器上运行。'
         ></Dialog>
       </div>
+
+      <div className="m-4 text-lg font-bold">确认弹框</div>
+      <div className="mb-4">
+        <Button type="primary" onClick={() => setVisible2(true)}>
+        确认弹框
+        </Button>
+        <Dialog 
+        visible={visible2} 
+        onClose={() => setVisible2(false)}
+        title='标题'
+        content='代码是写出来给人看的，附带能在机器上运行。'
+        cancelButtonText='取消'
+        showCancelButton
+        ></Dialog>
+      </div>
     </div>
   )
 }

@@ -79,26 +79,35 @@ const Dialog = (props: DialogProps) => {
               {content}
             </div>
           ) : null}
-          <div className="flex items-center h-12 border-t border-solid" style={{}}>
-            <div 
-            onClick={(e) => {
-              onConfirm?.(e);
-              onClose?.(e);
-            }}
-            className="flex-1 flex items-center justify-center" style={{borderColor: '#eee', color: confirmButtonColor }}>
-              {confirmButtonText}
-            </div>
-            {cancelButtonText ? (
-              <div 
+
+            <div className="flex items-center  border-t border-solid">
+            {showCancelButton ? (
+            <div
               onClick={(e) => {
-                onCancel?.(e);
-                onClose?.(e);
+                onCancel?.(e)
+                onClose?.(e)
               }}
-              className="flex-1 flex items-center justify-center" style={{ color: cancelButtonColor }}>
-                {cancelButtonText}
-              </div>
-            ) : null}
-          </div>
+              className="flex-1 flex items-center justify-center h-12"
+              style={{ color: cancelButtonColor,borderRight: '1px solid #eee' }}>
+              {cancelButtonText}
+            </div>
+          ) : null}
+              {
+                showConfirmButton ?
+                <div
+                onClick={(e) => {
+                  onConfirm?.(e)
+                  onClose?.(e)
+                }}
+                className="flex-1 flex items-center justify-center h-12"
+                style={{ borderColor: "#eee", color: confirmButtonColor }}>
+                {confirmButtonText}
+              </div> :null
+              }
+           
+
+
+           </div>
         </div>
       </div>
     </Overlay>
