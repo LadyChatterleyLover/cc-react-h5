@@ -18,7 +18,7 @@ const Overlay = (props: OverlayProps) => {
     style,
     visible = false,
     zIndex = 999,
-    getContainer = null,
+    getContainer = document.body,
     duration = 300,
     background = "rgba(0,0,0,.5)",
     onMaskClick,
@@ -68,16 +68,7 @@ const Overlay = (props: OverlayProps) => {
 
   const render = () => {
     const container = typeof getContainer === "function" ? getContainer() : getContainer
-    return container ? (
-      ReactDOM.createPortal(
-        visible ? (
-          renderContent()
-        ) : null,
-        container!
-      )
-    ) : (
-      renderContent()
-    )
+    return container ? ReactDOM.createPortal(renderContent(), container!) : renderContent()
   }
 
   return render()

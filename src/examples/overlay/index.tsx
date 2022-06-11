@@ -20,7 +20,7 @@ const OverlayIndex = () => {
       </div>
       <Overlay visible={visible1} onMaskClick={() => setVisible1(false)}></Overlay>
       <Overlay visible={visible2} onMaskClick={() => setVisible2(false)}>
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-center h-screen">
           <div className="w-32 h-32 bg-white"></div>
         </div>
       </Overlay>

@@ -1,0 +1,110 @@
+.cc-popup {
+  &-top {
+    width: 100%;
+    top: 0;
+    &-show {
+      animation: top-show linear forwards;
+    }
+    &-hidden {
+      animation: top-hidden linear forwards;
+    }
+  }
+  &-bottom {
+    width: 100%;
+    bottom: 0;
+    &-show {
+      animation: bottom-show linear forwards;
+    }
+    &-hidden {
+      animation: bottom-hidden linear forwards;
+    }
+  }
+  &-left {
+    height: 100%;
+    left: 0;
+    &-show {
+      animation: left-show linear forwards;
+    }
+    &-hidden {
+      animation: left-hidden linear forwards;
+    }
+  }
+  &-right {
+    height: 100%;
+    right: 0;
+    &-show {
+      animation: right-show linear forwards;
+    }
+    &-hidden {
+      animation: right-hidden linear forwards;
+    }
+  }
+}
+
+@keyframes top-show {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes top-hidden {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes bottom-show {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes bottom-hidden {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes left-show {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes left-hidden {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes right-show {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes right-hidden {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
