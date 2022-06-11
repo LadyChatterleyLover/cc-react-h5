@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactNode } from "react"
 import { useSizeClass, useTypeClass } from "../hooks/useClass"
-import Icon from "../icon"
-import Loading from "../loading"
+import Icon from "../icon/Icon"
+import Loading from "../loading/Loading"
 import { SizeProps, TypeProps } from "../types"
 
 export interface ButtonProps {

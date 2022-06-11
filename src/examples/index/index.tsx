@@ -1,4 +1,4 @@
-import Icon from "../../packages/icon"
+import Icon from "../../packages/icon/Icon"
 import { ChevronRight24Regular } from "@ricons/fluent"
 import { useNavigate } from "react-router-dom"
 

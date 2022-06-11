@@ -1,5 +1,5 @@
-import Space from "../../packages/space"
-import Button from "../../packages/button"
+import Space from "../../packages/space/Space"
+import Button from "../../packages/button/Button"
 
 const SpaceIndex = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import Button from "../../packages/button"
-import Overlay from "../../packages/overlay"
+import Button from "../../packages/button/Button"
+import Overlay from "../../packages/overlay/Overlay"
 
 const OverlayIndex = () => {
   const [visible1, setVisible1] = useState(false)

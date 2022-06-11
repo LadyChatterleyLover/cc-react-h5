@@ -1,5 +1,5 @@
 import React from "react"
-import Loading from "../../packages/loading"
+import Loading from "../../packages/loading/Loading"
 
 const LoadingIndex = () => {
   return (

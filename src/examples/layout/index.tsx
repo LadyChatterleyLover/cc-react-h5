@@ -1,6 +1,5 @@
-import React from "react"
-import Col from "../../packages/col"
-import Row from "../../packages/row"
+import Col from "../../packages/col/Col"
+import Row from "../../packages/row/Row"
 
 const LayoutIndex = () => {
   return (

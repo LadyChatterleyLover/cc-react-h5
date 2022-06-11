@@ -1,7 +1,5 @@
-import Button from "../../packages/button"
-import Space from "../../packages/space"
+import Button from "../../packages/button/Button"
 import { Search16Regular } from "@ricons/fluent"
-import Icon from "../../packages/icon"
 
 const ButtonIndex = () => {
   return (
