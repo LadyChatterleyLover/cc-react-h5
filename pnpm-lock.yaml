@@ -21,7 +21,7 @@ specifiers:
   react-router-dom: ^6.3.0
   sass: ^1.52.3
   sass-loader: ^13.0.0
-  tailwindcss: ^3.1.0
+  tailwindcss: ^3.1.2
   typescript: ^4.6.3
   vite: ^2.9.9
 
@@ -48,7 +48,7 @@ devDependencies:
   postcss: 8.4.14
   sass: 1.52.3
   sass-loader: 13.0.0_sass@1.52.3
-  tailwindcss: 3.1.0
+  tailwindcss: 3.1.2
   typescript: 4.7.3
   vite: 2.9.10_sass@1.52.3
 
@@ -2538,8 +2538,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /tailwindcss/3.1.0:
-    resolution: {integrity: sha512-XzXq31Fj6RizhlFVNLBlDqzs0dXuIEOAknuOcKx2R/IIQbEz5DnngslYY4JNN6e9JkNBjHGm1w2XDABsADg1ng==}
+  /tailwindcss/3.1.2:
+    resolution: {integrity: sha512-yJ6L5s1U5AeS5g7HHy212zdQfjwD426FBfm59pet/JsyneuZuD4C2W7PpJEg4ppisiB21uLqtNagv8KXury3+Q==}
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:

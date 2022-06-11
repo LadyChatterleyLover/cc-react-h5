@@ -1,6 +1,7 @@
 import React, { CSSProperties, useState, useEffect } from "react"
 import "./index.scss"
 import Overlay from "../overlay/Overlay"
+import Button from "../button/Button"
 
 export interface DialogProps {
   visible: boolean
@@ -15,6 +16,7 @@ export interface DialogProps {
   cancelButtonColor?: string
   closeOnClickOverlay?: boolean
   onMaskClick?: boolean
+  round?: boolean
   onClose?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onConfirm?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onCancel?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
@@ -27,6 +29,7 @@ const Dialog = (props: DialogProps) => {
     visible,
     title,
     content,
+    round = false,
     width = 320,
     showConfirmButton = true,
     showCancelButton = false,
@@ -75,39 +78,47 @@ const Dialog = (props: DialogProps) => {
                whitespace-pre-wrap
                text-center
                break-words 
-              `}>
+              `}
+              style={{
+                color: title ? "#646566" : "blank",
+                maxHeight: 'calc(70vh - 200px)'
+              }}>
               {content}
             </div>
           ) : null}
 
-            <div className="flex items-center  border-t border-solid">
+          <div className="flex items-center  border-t border-solid">
             {showCancelButton ? (
-            <div
-              onClick={(e) => {
-                onCancel?.(e)
-                onClose?.(e)
-              }}
-              className="flex-1 flex items-center justify-center h-12"
-              style={{ color: cancelButtonColor,borderRight: '1px solid #eee' }}>
-              {cancelButtonText}
-            </div>
-          ) : null}
-              {
-                showConfirmButton ?
-                <div
+              <div
+                onClick={(e) => {
+                  onCancel?.(e)
+                  onClose?.(e)
+                }}
+                className={`flex-1 flex items-center justify-center h-12 `}
+                style={{ color: cancelButtonColor, borderRight: "1px solid #eee" }}>
+                {round ? <Button round type="warning" size="small" style={{ width: "80%" }}>
+                    {cancelButtonText}
+                  </Button> : cancelButtonText}
+              </div>
+            ) : null}
+            {showConfirmButton ? (
+              <div
                 onClick={(e) => {
                   onConfirm?.(e)
                   onClose?.(e)
                 }}
-                className="flex-1 flex items-center justify-center h-12"
+                className={`flex-1 flex items-center justify-center h-12`}
                 style={{ borderColor: "#eee", color: confirmButtonColor }}>
-                {confirmButtonText}
-              </div> :null
-              }
-           
-
-
-           </div>
+                {round ? (
+                  <Button round type="danger" size="small" style={{ width: "80%" }}>
+                    {confirmButtonText}
+                  </Button>
+                ) : (
+                  confirmButtonText
+                )}
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </Overlay>
