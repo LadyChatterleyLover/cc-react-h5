@@ -8,11 +8,6 @@ const ActionSheetIndex = () => {
   const [visible2, setVisible2] = useState(false)
   const [visible3, setVisible3] = useState(false)
   const [visible4, setVisible4] = useState(false)
-  const [visible5, setVisible5] = useState(false)
-  const [visible6, setVisible6] = useState(false)
-  const [visible7, setVisible7] = useState(false)
-  const [visible8, setVisible8] = useState(false)
-  const [visible9, setVisible9] = useState(false)
 
   const actions: Action[] = [
     { text: "复制", key: "copy" },

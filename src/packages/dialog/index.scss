@@ -1,0 +1,25 @@
+.cc-dialog {
+  &-show {
+    animation: dialog-show .3s linear forwards;
+  }
+  &-hidden {
+    animation: dialog-hidden .3s linear forwards;
+  }
+}
+
+@keyframes dialog-show {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes dialog-hidden {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}

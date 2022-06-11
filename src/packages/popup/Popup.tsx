@@ -18,7 +18,7 @@ export interface PopupProps {
   children?: React.ReactNode
   style?: CSSProperties,
   getContainer?: HTMLElement | (() => HTMLElement | null)
-  onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onMaskClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
 const Popup = (props: PopupProps) => {
