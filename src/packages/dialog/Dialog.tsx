@@ -1,12 +1,14 @@
-import React, { CSSProperties, useState, useEffect } from "react"
+import React, { CSSProperties } from "react"
 import "./index.scss"
 import Overlay from "../overlay/Overlay"
 import Button from "../button/Button"
+import useDialog from "./useDialog"
 
 export interface DialogProps {
-  visible: boolean
+  visible?: boolean
   title?: React.ReactNode
   content?: React.ReactNode
+  footer?: React.ReactNode
   width?: number | string
   showConfirmButton?: boolean
   showCancelButton?: boolean
@@ -39,6 +41,7 @@ const Dialog = (props: DialogProps) => {
     cancelButtonColor = "blank",
     closeOnClickOverlay = false,
     onMaskClick,
+    footer,
     onClose,
     onConfirm,
     onCancel,
@@ -48,7 +51,7 @@ const Dialog = (props: DialogProps) => {
 
   return (
     <Overlay
-      visible={visible}
+      visible={visible!}
       getContainer={getContainer!}
       onMaskClick={(e) => {
         if (closeOnClickOverlay) {
@@ -81,48 +84,58 @@ const Dialog = (props: DialogProps) => {
               `}
               style={{
                 color: title ? "#646566" : "blank",
-                maxHeight: 'calc(70vh - 200px)'
+                maxHeight: "calc(70vh - 200px)",
               }}>
               {content}
             </div>
           ) : null}
 
-          <div className="flex items-center  border-t border-solid">
-            {showCancelButton ? (
-              <div
-                onClick={(e) => {
-                  onCancel?.(e)
-                  onClose?.(e)
-                }}
-                className={`flex-1 flex items-center justify-center h-12 `}
-                style={{ color: cancelButtonColor, borderRight: "1px solid #eee" }}>
-                {round ? <Button round type="warning" size="small" style={{ width: "80%" }}>
-                    {cancelButtonText}
-                  </Button> : cancelButtonText}
-              </div>
-            ) : null}
-            {showConfirmButton ? (
-              <div
-                onClick={(e) => {
-                  onConfirm?.(e)
-                  onClose?.(e)
-                }}
-                className={`flex-1 flex items-center justify-center h-12`}
-                style={{ borderColor: "#eee", color: confirmButtonColor }}>
-                {round ? (
-                  <Button round type="danger" size="small" style={{ width: "80%" }}>
-                    {confirmButtonText}
-                  </Button>
-                ) : (
-                  confirmButtonText
-                )}
-              </div>
-            ) : null}
-          </div>
+          {!footer ? (
+            <div className="flex items-center  border-t border-solid">
+              {showCancelButton ? (
+                <div
+                  onClick={(e) => {
+                    onCancel?.(e)
+                    onClose?.(e)
+                  }}
+                  className={`flex-1 flex items-center justify-center h-12 `}
+                  style={{ color: cancelButtonColor, borderRight: "1px solid #eee" }}>
+                  {round ? (
+                    <Button round type="warning" size="small" style={{ width: "80%" }}>
+                      {cancelButtonText}
+                    </Button>
+                  ) : (
+                    cancelButtonText
+                  )}
+                </div>
+              ) : null}
+              {showConfirmButton ? (
+                <div
+                  onClick={(e) => {
+                    onConfirm?.(e)
+                    onClose?.(e)
+                  }}
+                  className={`flex-1 flex items-center justify-center h-12`}
+                  style={{ borderColor: "#eee", color: confirmButtonColor }}>
+                  {round ? (
+                    <Button round type="danger" size="small" style={{ width: "80%" }}>
+                      {confirmButtonText}
+                    </Button>
+                  ) : (
+                    confirmButtonText
+                  )}
+                </div>
+              ) : null}
+            </div>
+          ) : (
+            footer
+          )}
         </div>
       </div>
     </Overlay>
   )
 }
+
+Dialog.show = useDialog
 
 export default Dialog
