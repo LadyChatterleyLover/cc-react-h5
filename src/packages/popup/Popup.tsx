@@ -4,6 +4,7 @@ import { Close } from "@ricons/ionicons5"
 import "./index.scss"
 import Overlay from "../overlay/Overlay"
 import Icon from "../icon/Icon"
+import { useDisplay } from "../hooks/useDisplay"
 
 export interface PopupProps {
   visible: boolean
@@ -16,7 +17,7 @@ export interface PopupProps {
   closeIcon?: any
   closeIconPosition?: "top-right" | "top-left" | "bottom-left" | "bottom-right"
   children?: React.ReactNode
-  style?: CSSProperties,
+  style?: CSSProperties
   getContainer?: HTMLElement | (() => HTMLElement | null)
   onMaskClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
@@ -38,21 +39,11 @@ const Popup = (props: PopupProps) => {
     onMaskClick,
   } = props
 
-  const [display, setDisplay] = useState<"block" | "none">("none")
+  const [display] = useDisplay(visible, duration)
 
   const handleOnMaskClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     onMaskClick?.(e)
   }
-
-  useEffect(() => {
-    if (visible) {
-      setDisplay("block")
-    } else {
-      setTimeout(() => {
-        setDisplay("none")
-      }, Number(duration))
-    }
-  }, [visible])
 
   return (
     <Overlay
@@ -81,7 +72,7 @@ const Popup = (props: PopupProps) => {
           }
           cc-popup-${position}
           ${visible ? `cc-popup-${position}-show` : `cc-popup-${position}-hidden`}
-          ${round ? 'rounded-t-3xl' : ''}
+          ${round ? "rounded-t-3xl" : ""}
       `}
         style={{
           ...style,
@@ -90,17 +81,17 @@ const Popup = (props: PopupProps) => {
           display,
         }}>
         {closeable ? (
-          <div 
-          onClick={handleOnMaskClick}
-          className={
-            `absolute
-            ${closeIconPosition === 'top-right' ? 'right-2 top-2' : ''}
-            ${closeIconPosition === 'top-left' ? 'left-2 top-2' : ''}
-            ${closeIconPosition === 'bottom-right' ? 'right-2 bottom-2' : ''}
-            ${closeIconPosition === 'bottom-left' ? 'left-2 bottom-2' : ''}
-            `
-            }>
-            <Icon size={24} color='#c8c9cc'>{React.createElement(closeIcon)}</Icon>
+          <div
+            onClick={handleOnMaskClick}
+            className={`absolute
+            ${closeIconPosition === "top-right" ? "right-2 top-2" : ""}
+            ${closeIconPosition === "top-left" ? "left-2 top-2" : ""}
+            ${closeIconPosition === "bottom-right" ? "right-2 bottom-2" : ""}
+            ${closeIconPosition === "bottom-left" ? "left-2 bottom-2" : ""}
+            `}>
+            <Icon size={24} color="#c8c9cc">
+              {React.createElement(closeIcon)}
+            </Icon>
           </div>
         ) : null}
         {children}

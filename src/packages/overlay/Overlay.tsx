@@ -1,5 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from "react"
 import ReactDOM from "react-dom"
+import { useDisplay } from "../hooks/useDisplay"
 import "./index.scss"
 
 export interface OverlayProps {
@@ -25,17 +26,7 @@ const Overlay = (props: OverlayProps) => {
     children,
   } = props
 
-  const [display, setDisplay] = useState<"block" | "none">("none")
-
-  useEffect(() => {
-    if (visible) {
-      setDisplay("block")
-    } else {
-      setTimeout(() => {
-        setDisplay("none")
-      }, Number(duration))
-    }
-  }, [visible])
+  const [display] = useDisplay(visible, duration)
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     onMaskClick?.(e)

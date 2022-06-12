@@ -1,0 +1,25 @@
+.cc-toast {
+  &-show {
+    animation: toast-show linear;
+  }
+  &-hidden {
+    animation: toast-hidden linear;
+  }
+}
+
+@keyframes toast-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes toast-hidden {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

@@ -15,10 +15,16 @@ function useDialog(config: DialogProps) {
     onCancel: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       config.onCancel?.(e)
       close()
+      setTimeout(() => {
+        destroy()
+      }, Number(300))
     },
     onConfirm: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       config.onConfirm?.(e)
       close()
+      setTimeout(() => {
+        destroy()
+      }, Number(300))
     },
   }
   function render(props: DialogProps) {
@@ -26,6 +32,7 @@ function useDialog(config: DialogProps) {
   }
 
   function destroy() {
+    console.log("222")
     root?.unmount()
     if (container!.parentNode) {
       container?.parentNode.removeChild(container)
@@ -36,7 +43,6 @@ function useDialog(config: DialogProps) {
     render({
       ...currentConfig,
       visible: false,
-      onClose: destroy,
     })
   }
 

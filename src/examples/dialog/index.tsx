@@ -9,9 +9,6 @@ const DialogIndex = () => {
   const [visible4, setVisible4] = useState(false)
   const [visible5, setVisible5] = useState(false)
   const [visible6, setVisible6] = useState(false)
-  const [visible7, setVisible7] = useState(false)
-  const [visible8, setVisible8] = useState(false)
-  const [visible9, setVisible9] = useState(false)
 
   return (
     <div className="p-5">
@@ -105,7 +102,6 @@ const DialogIndex = () => {
             Dialog.show({
               title: "标题",
               content: "人在天边月上明",
-              getContainer: document.getElementById('root')!,
               onConfirm: () => {
                 console.log("Confirmed")
               },

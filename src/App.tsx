@@ -8,6 +8,7 @@ import OverlayIndex from "./examples/overlay"
 import PopupIndex from "./examples/popup"
 import ActionSheetIndex from "./examples/actionSheet"
 import DialogIndex from "./examples/dialog"
+import ToastIndex from "./examples/toast"
 
 const Routes = () => {
   const routes = useRoutes([
@@ -46,6 +47,10 @@ const Routes = () => {
     {
       path: "/dialog",
       element: <DialogIndex />,
+    },
+    {
+      path: "/toast",
+      element: <ToastIndex />,
     },
   ])
   return routes
